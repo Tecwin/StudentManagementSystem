@@ -1,16 +1,9 @@
 package com.Project.Project.DTO;
 
-import org.springframework.stereotype.Component;
+
 
 import com.Project.Project.POJO.Roles;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 
 
 public class StudentDTO {
