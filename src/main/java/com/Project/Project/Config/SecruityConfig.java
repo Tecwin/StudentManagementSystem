@@ -1,5 +1,8 @@
 package com.Project.Project.Config;
 
+import static //
+org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,9 +22,11 @@ import com.Project.Project.Filter.SecurityFilter;
 @EnableWebSecurity
 public class SecruityConfig {
 	
-	public static final String[] publicURL= {"/user/login","/student/save","/professor/save"};
+	public static final String[] publicURL= {"/user/login","/student/save","/professor/save","/"};
 	public static final String[] SWAGGERURL= {
-													  "/swagger-ui/index.html",
+			 										"/swagger-ui/**",
+			/*
+													  "/swagger-ui/index.html",													  
 													  "/swagger-ui/swagger-ui.css",
 													  "/swagger-ui/index.css",
 													  "/swagger-ui/swagger-ui-bundle.js",
@@ -29,8 +34,10 @@ public class SecruityConfig {
 													  "/swagger-ui/swagger-initializer.js",
 													  "/swagger-ui/favicon-32x32.png",
 													  "/swagger-ui/favicon-16x16.png",
+													  */
 													  "/v3/api-docs/swagger-config",
 													  "/v3/api-docs"
+													  
 													  };
 	public static final String[] ADMINURL= {"/professor/delete/{id}"};
 	
@@ -55,10 +62,13 @@ public class SecruityConfig {
 	 
 	@Bean
 	    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-	      http
+  http
 	      .cors().and()
 	      .csrf().disable()
+	      .headers().frameOptions().disable()
+	      .and()
 	      .authorizeHttpRequests()
+	      .requestMatchers(toH2Console()).permitAll()
 	      .requestMatchers(publicURL).permitAll()  
 	      .requestMatchers(SWAGGERURL).permitAll()
 	      .requestMatchers(ADMINURL).hasRole("ADMIN")
@@ -74,6 +84,7 @@ public class SecruityConfig {
 	      .and()
 	      .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
 	      System.out.println("###^###");	
+	      
 	        return http.build();
 	    }
 

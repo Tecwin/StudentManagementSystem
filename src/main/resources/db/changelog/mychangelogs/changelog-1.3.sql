@@ -1,4 +1,4 @@
 --liquibase formatted sql
         
 --changeset root:6
-insert into person2 values (1,"tin");
+insert into person2 (id,name) values (1,'tin');
