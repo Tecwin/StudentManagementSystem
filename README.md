@@ -1,8 +1,8 @@
- StudentManagementSystem
+ Student Management System
 
-This project is based on the concept of student management system and is currently under development.Development is done using Java Spring Boot and Hibernate , it includes spring security and there are API designed which are secured based on roles in the system like Admin, Professor and Student.Also implemented Swagger , Liquibase and H2 database 
+This project is based on the concept of student management system and is currently under development.Development is done using Java Spring Boot and Hibernate , it includes spring security for authentication and authorization , and there are API designed which are secured based on roles in the system like Admin, Professor and Student.Also implemented Swagger , Liquibase and H2 database 
 
-SWAGGER Screencshort
+SWAGGER Screenshot
 ![image](https://github.com/Tecwin/StudentManagementSystem/assets/49346742/861527f7-d854-473b-b059-b7a9ae96773c)
 
 H2-Console Screenshot
@@ -27,7 +27,7 @@ Delete Professor API is accessible only to user with ADMIN role , if any other u
 Screenshot when User with Student Role tries to use the Delete professor API
 ![image](https://github.com/Tecwin/StudentManagementSystem/assets/49346742/28ebc93c-ac96-42a1-88b7-e97498e8d458)
 
-Scrrenshort when User with ADMIN role tries to use the Delete professor API , it returns 200 code and the professor is deleted successfully
+Screenshot when User with ADMIN role tries to use the Delete professor API , it returns 200 code and the professor is deleted successfully
 ![image](https://github.com/Tecwin/StudentManagementSystem/assets/49346742/228c268b-2863-4365-be8e-cdadda2be12a)
 
 Screenshot of H2 Database showing that the professor is deleted 
